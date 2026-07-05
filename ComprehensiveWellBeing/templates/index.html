@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Human Development Index Predictor</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:#eef2f7;
+
+}
+
+.container{
+
+width:85%;
+margin:auto;
+padding-top:30px;
+
+}
+
+.header{
+
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0px 0px 10px lightgray;
+margin-bottom:25px;
+
+}
+
+.header h1{
+
+color:#0f4c81;
+
+}
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-bottom:25px;
+
+}
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0px 0px 10px lightgray;
+
+}
+
+.form-box{
+
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0px 0px 10px lightgray;
+
+}
+
+input{
+
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid gray;
+
+}
+
+button{
+
+width:100%;
+padding:14px;
+border:none;
+background:#0f9d58;
+color:white;
+font-size:18px;
+border-radius:10px;
+
+}
+
+.result{
+
+margin-top:20px;
+background:#d8ffdf;
+padding:20px;
+border-radius:10px;
+font-size:25px;
+text-align:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+🌍 Human Development Index Prediction System
+</h1>
+
+<br>
+
+<p>
+
+Predict HDI category using health, education and income indicators.
+
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h2>Very High HDI</h2>
+
+<p>
+Strong healthcare, education and income
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Medium HDI</h2>
+
+<p>
+Developing countries needing improvement
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Low HDI</h2>
+
+<p>
+Countries requiring intervention
+</p>
+
+</div>
+
+</div>
+
+
+<div class="form-box">
+
+<h2>Enter Country Indicators</h2>
+
+<br>
+
+<form action="/predict" method="POST">
+
+<label>Life Expectancy</label>
+
+<input type="number"
+step="0.1"
+name="life"
+required>
+
+<label>Mean Years of Schooling</label>
+
+<input type="number"
+step="0.1"
+name="mean"
+required>
+
+<label>Expected Years of Schooling</label>
+
+<input type="number"
+step="0.1"
+name="expected"
+required>
+
+<label>GNI Per Capita</label>
+
+<input type="number"
+step="0.1"
+name="gni"
+required>
+
+<button type="submit">
+
+Predict HDI
+
+</button>
+
+</form>
+
+{% if prediction_text %}
+
+<div class="result">
+
+{{prediction_text}}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>
